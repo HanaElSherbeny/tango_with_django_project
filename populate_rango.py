@@ -37,9 +37,9 @@ def populate():
          'url':'http://bottlepy.org/docs/dev/'},
         {'title':'Flask',
          'url':'http://flask.pocoo.org'} ]
-    cats = {'Python': {'pages': python_pages,'views': 'Python'.views, 'likes':'Python'.likes},
-            'Django': {'pages': django_pages,'views': 'Django'.views, 'likes':'Django'.likes},
-            'Other Frameworks': {'pages': other_pages,'views': 'Other Frameworks'.views, 'likes':'Other Frameworks'.likes} }
+    cats = {'Python': {'pages': python_pages,'views':128, 'likes':64},
+            'Django': {'pages': django_pages,'views': 64, 'likes': 32 },
+            'Other Frameworks': {'pages': other_pages,'views':32 , 'likes': 16} }
     # If you want to add more categories or pages,
     # add them to the dictionaries above.
     # The code below goes through the cats dictionary, then adds each category, # and then adds all the associated pages for that category.
@@ -60,7 +60,10 @@ def add_page(cat,title,url,views=0):
     p.save()
     return p
 def add_cat(name,views=0,likes=0):
+    
     c = Category.objects.get_or_create(name=name)[0] 
+    c.views=views
+    c.likes=likes
     c.save()
     return c
 
@@ -69,6 +72,14 @@ if __name__=='__main__':
     print('Starting Rango population script...') 
     populate()
 
+
+
+'''
+ cats = {'Python': {'pages': python_pages,'views':Category.objects.get(name="Python").views, 'likes':Category.objects.get(name="Python").likes },
+            'Django': {'pages': django_pages,'views': Category.objects.get(name="Django").views , 'likes': Category.objects.get(name="Django").likes  },
+            'Other Frameworks': {'pages': other_pages,'views':Category.objects.get(name="Other Frameworks").views , 'likes': Category.objects.get(name="Other Frameworks").likes } }
+    # If you want to add more categories or pages,
+'''
 
 
 
