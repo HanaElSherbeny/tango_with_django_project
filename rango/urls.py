@@ -15,6 +15,8 @@ urlpatterns = [
     path("index/", views.index, name='index'),
     path('category/<slug:category_name_slug>/',
          views.show_category, name='show_category'),
+    path('category/<slug:category_name_slug>/',
+         views.show_category, name='show_category'),
 ]
 
  

@@ -32,7 +32,7 @@ def populate():
  {'title':'Official Django Tutorial',
          'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/',"views":99},
         {'title':'Django Rocks',
-         'url':'http://www.djangorocks.com/',"views":102},
+         'url':'http://www.djangorocks.com/',"views":103},
         {'title':'How to Tango with Django',
          'url':'http://www.tangowithdjango.com/',"views":90} ]
     other_pages = [
