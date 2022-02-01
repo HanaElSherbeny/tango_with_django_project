@@ -20,27 +20,27 @@ def populate():
     python_pages = [
         {'title': 'Official Python Tutorial',
          'url':'http://docs.python.org/3/tutorial/',
-         "views":100},
+         "views":300},
         {'title':'How to Think like a Computer Scientist',
          'url':'http://www.greenteapress.com/thinkpython/',
-         "views":102},
+         "views":330},
         {'title':'Learn Python in 10 Minutes',
          'url':'http://www.korokithakis.net/tutorials/python/',
-         "views":150} ]
+         "views":200} ]
     django_pages = [
  
  {'title':'Official Django Tutorial',
          'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/',"views":99},
         {'title':'Django Rocks',
-         'url':'http://www.djangorocks.com/',"views":103},
+         'url':'http://www.djangorocks.com/',"views":110},
         {'title':'How to Tango with Django',
-         'url':'http://www.tangowithdjango.com/',"views":90} ]
+         'url':'http://www.tangowithdjango.com/',"views":105} ]
     other_pages = [
         {'title':'Bottle',
          'url':'http://bottlepy.org/docs/dev/',"views":99},
         {'title':'Flask',
-         'url':'http://flask.pocoo.org',"views":89} ]
-    cats = {'Python': {'pages': python_pages,'views':128, 'likes':64},
+         'url':'http://flask.pocoo.org',"views":100} ]
+    cats = {'Python': {'pages': python_pages,'views':44, 'likes':64},
             'Django': {'pages': django_pages,'views': 64, 'likes': 32 },
             'Other Frameworks': {'pages': other_pages,'views':32 , 'likes': 16} }
     # If you want to add more categories or pages,
