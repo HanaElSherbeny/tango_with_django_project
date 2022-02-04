@@ -1,5 +1,6 @@
 <!DOCTYPEhtml>
-{%loadstaticfiles%}
+{% load staticfiles %}
+{% load rango_template_tags %}
 <html> <head>
 <title> Rango -
             {% block title_block %}
@@ -8,8 +9,18 @@
 </head> 
 <body>
 <div>
+
 {% block body_block %} 
 {% endblock %}
+</div>
+
+<div>
+ 
+{% block sidebar_block %}
+        {% get_category_list category %}
+    {% endblock %}
+
+
 </div>
 <hr />
 <div>
