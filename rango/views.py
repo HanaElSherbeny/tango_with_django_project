@@ -28,12 +28,13 @@ def index(request):
     request.session.set_test_cookie()
     category_list = Category.objects.order_by('-likes')[:5] 
     page_list = Page.objects.order_by('-views')[:5]
+    
     context_dict = {}
     context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'
     context_dict['categories'] = category_list
     context_dict['pages'] = page_list
     visitor_cookie_handler(request)
-    context_dict['visits'] = request.session['visits']
+   # context_dict['visits'] = request.session['visits']
     response = render(request, 'rango/index.html', context=context_dict) 
     return response
 
@@ -67,9 +68,15 @@ def about(request):
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier. 
     # Note that the first parameter is the template we wish to use. 
-    if request.session.test_cookie_worked(): 
-        print("TEST COOKIE WORKED!") 
-        request.session.delete_test_cookie()
+    if request.session.get('visits'):
+        visits = request.session.get('visits')
+    else:
+        visits = 0
+    visitor_cookie_handler(request)
+    context_dict['visits'] = request.session['visits']
+   # if request.session.test_cookie_worked(): 
+        #print("TEST COOKIE WORKED!") 
+        #request.session.delete_test_cookie()
     return render(request, 'rango/about.html', context=context_dict)
 
 def show_category(request, category_name_slug):
@@ -126,7 +133,7 @@ def add_page(request, category_name_slug):
             category = Category.objects.get(slug=category_name_slug) 
         except Category.DoesNotExist:
             category = None
-        # You cannot add a page to a Category that does not exist...
+        
         if category is None:
             return redirect('/rango/')
         form = PageForm()
