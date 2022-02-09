@@ -102,7 +102,7 @@ def show_category(request, category_name_slug):
 
 def add_category(request): 
    form = CategoryForm()
-   if request.user.is_authenticated():
+   if request.user.is_authenticated:
         if request.method == 'POST':
             form = CategoryForm(request.POST)
             # Have we been provided with a valid form?
@@ -123,7 +123,7 @@ def add_category(request):
 
 
 def add_page(request, category_name_slug): 
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         try:
             category = Category.objects.get(slug=category_name_slug) 
         except Category.DoesNotExist:
