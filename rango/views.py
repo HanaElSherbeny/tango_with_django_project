@@ -119,7 +119,7 @@ def add_category(request):
         # Will handle the bad form, new form, or no form supplied cases. # Render the form with error messages (if any).
         return render(request, 'rango/add_category.html', {'form': form})
    else:
-         return HttpResponse("You are not logged in.")
+         return redirect(reverse("You are not logged in."))
 
 
 def add_page(request, category_name_slug): 
@@ -146,7 +146,7 @@ def add_page(request, category_name_slug):
         context_dict = {'form': form, 'category': category}
         return render(request, 'rango/add_page.html', context=context_dict)
     else:
-        return HttpResponse("You are not logged in.")
+        return redirect(reverse("You are not logged in."))
 
 
 
